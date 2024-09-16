@@ -1,0 +1,978 @@
+/*===== VARIABLES CSS =====*/
+:root {
+  /* Header */
+  --header-height: 3rem;
+  --font-semi: 600;
+
+  /* Colors */
+  /* HSL color mode: Hue, Saturation, Lightness */
+  --hue-color: 236;
+  --first-color: hsl(var(--hue-color), 100%, 67%);  /* Primary color */
+  --second-color: hsl(var(--hue-color), 56%, 12%); /* Secondary color */
+
+  /* Typography */
+  --body-font: "Poppins", sans-serif;
+  --big-font-size: 2rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: 0.938rem;
+  --smaller-font-size: 0.75rem;
+
+  /* Margins */
+  --mb-2: 1rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+
+  /* z-index */
+  --z-back: -10;
+  --z-fixed: 100;
+}
+
+/* Adjust font sizes for larger screens */
+@media screen and (min-width: 968px) {
+  :root {
+    --big-font-size: 3.5rem;
+    --h2-font-size: 2rem;
+    --normal-font-size: 1rem;
+  }
+}
+
+/* Classe show para exibir elementos */
+.show {
+  display: block; /* Exibe o elemento */
+}
+
+/* Classe active para destacar o link ativo */
+.active {
+  color: var(--first-color); /* Altera a cor do link ativo */
+}
+/*===== BASE =====*/
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: var(--header-height) 0 0 0; /* Espaço para o cabeçalho fixo */
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--second-color);
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*===== CLASS CSS ===== */
+
+/* Section Titles */
+.section-title {
+  position: relative;
+  font-size: var(--h2-font-size);
+  color: var(--first-color);
+  margin-top: var(--mb-2);
+  margin-bottom: var(--mb-4);
+  text-align: center;
+}
+
+.section-title::after {
+  position: absolute;
+  content: "";
+  width: 64px;
+  height: 0.18rem;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 2rem;
+  background-color: var(--first-color);
+}
+
+/* Section Padding */
+.section {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+/*===== LAYOUT =====*/
+
+/* Grid Layout */
+.bd-grid {
+  max-width: 1024px;
+  display: grid;
+  margin-left: var(--mb-2);
+  margin-right: var(--mb-2);
+}
+
+/* Fixed Header */
+.l-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+}
+
+/*===== NAV =====*/
+.nav {
+  display: flex;
+  justify-content: space-between; /* Espaço entre os elementos (idiomas à esquerda e menu à direita) */
+  align-items: center;            /* Alinhamento vertical central */
+  height: var(--header-height);
+  padding: 0 1rem;                /* Espaçamento interno horizontal */
+  background-color: #fff;         /* Cor de fundo do cabeçalho */
+  box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15); /* Sombra para dar destaque */
+}
+
+/* Language Switcher */
+.language-switcher {
+  display: flex;
+  gap: 0.5rem;                    /* Espaçamento entre os botões de idioma */
+}
+
+.lang-switch {
+  background: none;
+  border: none;
+  color: var(--second-color);
+  font-weight: var(--font-semi);
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.lang-switch:hover,
+.lang-switch.active {
+  color: var(--first-color);
+}
+
+/* Navigation Menu */
+.nav__menu {
+  display: flex;
+}
+
+.nav__list {
+  display: flex;
+  gap: 1rem;                      /* Espaçamento entre os itens do menu */
+}
+
+.nav__item {
+  /* Remover margem inferior em desktop, gerenciado pelo flex */
+}
+
+.nav__link {
+  color: var(--second-color);
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav__link:hover,
+.nav__link.active-link {
+  color: var(--first-color);
+}
+
+/* Toggle Button para Mobile */
+.nav__toggle {
+  display: none;                  /* Esconde o toggle em telas grandes */
+  font-size: 1.5rem;
+  color: var(--second-color);
+  cursor: pointer;
+}
+
+/* Active link underline */
+.active-link::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0.18rem;
+  left: 0;
+  top: 2rem;
+  background-color: var(--first-color);
+}
+
+/*===== MOBILE MENU =====*/
+@media screen and (max-width: 767px) {
+  .nav__menu {
+    position: fixed;
+    top: var(--header-height);
+    right: -100%;                 /* Esconde o menu fora da tela à direita */
+    width: 80%;
+    height: 100%;
+    padding: 2rem;
+    background-color: var(--second-color);
+    transition: right 0.5s ease;
+    flex-direction: column;       /* Empilha os itens verticalmente */
+    gap: 2rem;
+    z-index: var(--z-fixed);
+  }
+
+  .nav__menu.show {
+    right: 0;                      /* Exibe o menu */
+  }
+
+  .nav__list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav__toggle {
+    display: block;                /* Mostra o toggle em telas pequenas */
+  }
+
+  .nav__link {
+    color: #fff;                   /* Cores dos links no mobile */
+  }
+
+  /* Ajustes para os botões de idioma no mobile */
+  .language-switcher {
+    gap: 0.3rem;                   /* Espaçamento menor em mobile */
+  }
+
+  .lang-switch {
+    padding: 0.4rem;               /* Padding menor em mobile */
+    font-size: 0.9rem;             /* Fonte menor em mobile */
+  }
+}
+
+/*===== LANG SWITCH ACTIVE =====*/
+.lang-switch.active {
+  color: var(--first-color);
+  font-weight: bold;
+}
+
+/*===== HOME =====*/
+.home {
+  position: relative;
+  row-gap: 5rem;
+  padding: 4rem 0 5rem;
+}
+
+.home__data {
+  align-self: center;
+}
+
+.home__title {
+  font-size: var(--big-font-size);
+  margin-bottom: var(--mb-5);
+}
+
+.home__title-color {
+  color: var(--first-color);
+}
+
+.home__social {
+  display: flex;
+  flex-direction: column;
+}
+
+.home__social-icon {
+  width: max-content;
+  margin-bottom: var(--mb-2);
+  font-size: 1.5rem;
+  color: var(--second-color);
+}
+
+.home__social-icon:hover {
+  color: var(--first-color);
+}
+
+.home__img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 260px;
+}
+
+.home__blob {
+  fill: var(--first-color);
+}
+
+.home__blob-img {
+  width: 360px;
+}
+
+/*===== BUTTONS =====*/
+.button {
+  display: inline-block;
+  background-color: #aa7d03;
+  color: #fff;
+  padding: 0.75rem 2.5rem;
+  font-weight: var(--font-semi);
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+
+.button:hover {
+  box-shadow: 0px 10px 36px rgba(0, 0, 0, 0.15);
+}
+
+/*===== SOBRE =====*/
+/* Container da seção sobre */
+.about__container {
+  row-gap: 2rem; /* Espaçamento entre as linhas */
+  text-align: center; /* Alinhamento centralizado do texto */
+}
+
+/* Subtítulo da seção sobre */
+.about__subtitle {
+  margin-bottom: var(--mb-2); /* Espaçamento inferior */
+  font-family: "Poppins", sans-serif; /* Fonte */
+  font-size: 1.1rem; /* Tamanho da fonte */
+  color: #555; /* Cor do texto */
+}
+
+/* Imagem da seção sobre */
+.about__img {
+  justify-self: center; /* Alinhamento centralizado horizontalmente */
+}
+
+/* Imagem da seção sobre */
+.about__img img {
+  width: 200px; /* Largura da imagem */
+  border-radius: 0.5rem; /* Borda arredondada */
+}
+
+/*===== SEÇÃO DE HABILIDADES =====*/
+.skills {
+  padding: 4rem 2rem; /* Espaçamento interno da seção */
+  background-color: #f9f9f9; /* Cor de fundo da seção */
+}
+
+/* Título da Seção */
+.skills .section-title {
+  text-align: center; /* Centraliza o título */
+  margin-bottom: 2rem; /* Espaçamento abaixo do título */
+  font-size: 2.5rem; /* Tamanho da fonte do título */
+  color: var(--first-color); /* Cor do título, definida por uma variável CSS */
+}
+
+/* Introdução */
+.skills__intro {
+  max-width: 1600px; /* Define a largura máxima do elemento */
+
+  text-align: left; /* Centraliza o texto dentro do elemento */
+  font-family: "Poppins", sans-serif; /* Fonte */
+  font-size: 1.1rem; /* Tamanho da fonte */
+  line-height: 1.5; /* Define a altura da linha do texto */
+  color: #555; /* Define a cor do texto */
+}
+
+/* Tabela Principal: Introdução e Linguagens à Esquerda, Imagem à Direita */
+.skills__main-table {
+  display: flex; /* Utiliza Flexbox para layout flexível */
+  flex-direction: column; /* Direção das colunas em dispositivos menores */
+  gap: 2rem; /* Espaçamento entre as colunas */
+  align-items: center; /* Alinha os itens ao centro */
+}
+
+/* Coluna Esquerda: Introdução e Linguagens */
+.skills__left-column {
+  width: 100%; /* Ocupa toda a largura disponível */
+}
+
+.skills__language {
+    margin-top: 0.5rem;/* Espaçamento superior entre o título e as linguagens */
+}
+
+.skills__language h3 {
+  font-size: 1.5rem; /* Tamanho da fonte do subtítulo de linguagens */
+  margin-bottom: 0.5rem; /* Espaçamento inferior */
+  margin-top: 0; /* Remover a margem superior */
+  color: var(--first-color); /* Cor do subtítulo */
+  position: relative; /* Necessário para alinhar o pseudo-elemento ::after */
+  display: inline-block;
+  padding-bottom: 0.3rem; /* Espaçamento inferior */
+  text-align: center; /* Centraliza o texto */
+  width: 100%; /* Define a largura do elemento como 100% */
+}
+
+.skills__language h3::after {
+  content: ''; /* Linha decorativa abaixo do subtítulo */
+  width: 50px;
+  height: 3px;
+  background-color: var(--first-color); /* Cor da linha */
+  position: absolute;
+  left: 50%; /* Centraliza horizontalmente */
+  bottom: 0; /* Fixa no final do elemento */
+  transform: translateX(-50%); /* Ajuste para centralizar */
+  border-radius: 2px; /* Arredonda os cantos da linha */
+}
+
+/* Lista de habilidades de programação */
+.skills__language ul {
+  list-style: none; /* Remove marcadores da lista */
+  padding: 0; /* Remove o padding padrão */
+  display: flex;
+  flex-direction: column; /* Empilha as habilidades verticalmente */
+  gap: 0.5rem; /* Espaçamento entre os itens da lista */
+}
+
+/* Cada item de habilidade (li) */
+.skills__language li {
+  position: relative;
+  padding: 1rem; /* Espaçamento interno do item */
+  background-color: #fff;
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  display: flex; /* Organiza o ícone, nome e barra de progresso horizontalmente */
+  align-items: center; /* Alinha os itens verticalmente no centro */
+}
+
+/* Container do item da habilidade */
+.skills__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.25rem 0.5rem; /* Reduzir o espaçamento interno */
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Certifique-se de que as caixas ocupam toda a largura disponível */
+    max-width: 600px; /* Definir uma largura máxima para as caixas */
+    height: auto; /* Deixe a altura automática */
+}
+/* Estilo do ícone e nome da habilidade */
+.skills__item i {
+  font-size: 1.5rem; /* Tamanho do ícone */
+  margin-right: 0.5rem; /* Espaçamento entre ícone e nome */
+}
+
+.skill-name {
+  font-size: 1rem;
+  color: #333; /* Cor do nome da habilidade */
+  font-weight: 600;
+  margin-right: 1rem; /* Espaçamento entre o nome e a barra de progresso */
+  white-space: pre-wrap; /* Respeita os espaços em branco */
+}
+
+/* Container da barra de progresso */
+.skills__progress-container {
+  flex-grow: 1; /* A barra de progresso ocupará todo o espaço restante */
+  height: 5px; /* Define a altura da barra de progresso */
+}
+
+/* Barra de progresso */
+.skills__bar {
+  width: 100%; /* A barra de progresso ocupa 100% da largura disponível */
+  background-color: #e0e0e0; /* Cor de fundo da barra */
+  border-radius: 5px; /* Bordas arredondadas */
+  height: 5px; /* Altura da barra */
+  position: relative;
+}
+
+.skills__bar-fill {
+  height: 100%; /* A altura da barra preenchida corresponde à da barra de progresso */
+  background-color: #aa7d03; /* Cor da barra de preenchimento */
+  width: 0; /* Inicialmente 0 para animação */
+  border-radius: 5px; /* Bordas arredondadas */
+  transition: width 1s ease-in-out; /* Animação suave no preenchimento da bar */
+}
+
+/* Classes Específicas para Definir a Largura das Barras */
+.skills__python::after,
+.skills__r::after,
+.skills__html::after,
+.skills__css::after,
+.skills__javascript::after,
+.skills__cpp::after {
+    display: none; 
+}
+
+/* Responsividade */
+/* Para dispositivos menores */
+@media (max-width: 600px) {
+  .skills__language ul {
+    flex-direction: column; /* Alinha as habilidades verticalmente */
+    align-items: stretch; /* Estica os itens da lista para ocupar toda a largura */
+  }
+
+  .skills__language li {
+    width: 100%; /* Cada item ocupa 100% da largura do contêiner */
+  }
+}
+
+/* Coluna Direita: Imagem */
+.skills__right-column {
+  width: 100%; /* Ocupa toda a largura disponível */
+}
+
+.skills__image {
+  max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+  height: auto; /* Mantém a proporção da imagem */
+  border-radius: 8px; /* Bordas arredondadas para a imagem */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para a imagem */
+}
+
+/* Habilidades Técnicas */
+.skills__technical {
+  width: 100%; /* Ocupa toda a largura disponível */
+}
+
+.skills__technical h3 {
+    text-align: center; /* Centraliza o subtítulo */
+    font-size: 1.8rem; /* Tamanho da fonte do subtítulo */
+    margin-bottom: 1.5rem; /* Espaçamento abaixo do subtítulo */
+    color: var(--first-color); /* Cor do subtítulo */
+    border-bottom: 2px solid var(--first-color); /* Linha abaixo do subtítulo */
+    display: inline-block; /* Permite adicionar padding-bottom */
+    padding-bottom: 0.5rem; /* Espaçamento abaixo do subtítulo */
+}
+
+/* Contêiner das Colunas das Habilidades Técnicas */
+.skills__columns {
+  display: flex; /* Utiliza Flexbox para layout flexível */
+  flex-direction: column; /* Direção das colunas em dispositivos menores */
+  gap: 2rem; /* Espaçamento entre as colunas */
+}
+
+/* Cada Coluna das Habilidades Técnicas */
+.skills__column {
+  flex: 1; /* Permite que as colunas ocupem espaço igual */
+}
+
+/* Subtítulos das Colunas Técnicas */
+.skills__column h4 {
+  font-size: 1.5rem; /* Tamanho da fonte do subtítulo */
+  margin-bottom: 1rem; /* Espaçamento abaixo do subtítulo */
+  color: #333; /* Cor do subtítulo */
+}
+
+/* Listas nas Colunas Técnicas */
+.skills__column ul {
+  list-style: none; /* Remove os marcadores da lista */
+  padding: 0; /* Remove o padding padrão */
+}
+
+.skills__column li {
+  background-color: #fff; /* Cor de fundo dos itens da lista */
+  padding: 0.75rem 1rem; /* Espaçamento interno dos itens */
+  margin-bottom: 0.5rem; /* Espaçamento abaixo de cada item */
+  border-radius: 5px; /* Bordas arredondadas */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidade */
+  font-size: 1rem; /* Tamanho da fonte dos itens */
+  color: #333; /* Cor do texto dos itens */
+}
+
+/* Habilidades Interpessoais */
+.skills__soft-skills {
+  background-color: #fff; /* Cor de fundo */
+  padding: 2rem; /* Espaçamento interno */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  text-align: center; /* Centraliza o texto */
+}
+
+.skills__soft-skills h3 {
+  font-size: 1.8rem; /* Tamanho da fonte do subtítulo */
+  margin-bottom: 1rem; /* Espaçamento abaixo do subtítulo */
+  color: var(--first-color); /* Cor do subtítulo */
+  border-bottom: 2px solid var(--first-color); /* Linha abaixo do subtítulo */
+  display: inline-block; /* Permite adicionar padding-bottom */
+  padding-bottom: 0.5rem; /* Espaçamento abaixo do subtítulo */
+}
+
+.skills__soft-skills ul {
+  list-style: none; /* Remove os marcadores da lista */
+  padding: 0; /* Remove o padding padrão */
+  display: flex; /* Utiliza Flexbox para layout flexível */
+  flex-wrap: wrap; /* Permite quebra de linha */
+  justify-content: center; /* Centraliza os itens */
+  gap: 1rem; /* Espaçamento entre os itens */
+}
+
+.skills__soft-skills li {
+  background-color: #f0f0f0; /* Cor de fundo dos itens */
+  padding: 0.5rem 1rem; /* Espaçamento interno */
+  border-radius: 20px; /* Bordas arredondadas */
+  font-size: 1rem; /* Tamanho da fonte */
+  color: #555; /* Cor do texto */
+  transition: transform 0.3s; /* Transição suave para hover */
+}
+
+.skills__soft-skills li:hover {
+  transform: scale(1.05); /* Aumenta ligeiramente o tamanho no hover */
+}
+
+/* Certificações e Cursos */
+/* Certificações e Cursos */
+.skills__certifications {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.skills__certifications h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--first-color);
+  border-bottom: 2px solid var(--first-color);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.skills__certifications ul {
+  list-style: none;
+  padding: 0;
+  display: flex; /* Flexbox para alinhar lado a lado */
+  justify-content: center; /* Centralizar os itens */
+  gap: 2rem; /* Espaçamento entre os itens */
+  margin-bottom: 2rem; /* Espaço para a imagem abaixo */
+}
+
+.skills__certifications li {
+  background-color: #f0f0f0;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.skills__certifications li:hover {
+  transform: scale(1.05); /* Efeito de hover */
+}
+
+/* Estilo para a imagem de certificações */
+.skills__certifications img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para a imagem */
+}
+/* Ajuste para garantir que as imagens tenham o mesmo tamanho */
+.cert-image {
+  width: 300px; /* Tamanho fixo para ambas as imagens */
+  height: auto;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.cert-image:hover {
+  transform: scale(1.05); /* Zoom na imagem ao passar o mouse */
+}
+
+/* Estilo para o modal */
+.modal {
+  display: none; /* Escondido por padrão */
+  position: fixed; /* Fica sobreposto à página */
+  z-index: 1000; /* Valor alto para garantir que esteja acima de outros elementos */
+  padding-top: 60px; /* Espaçamento no topo */
+  left: 0;
+  top: 0;
+  width: 100%; /* Largura total */
+  height: 100%; /* Altura total */
+  background-color: rgba(0,0,0,0.9); /* Fundo preto com opacidade */
+}
+
+/* Estilo para a imagem dentro do modal */
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%; /* Tamanho máximo da imagem */
+  height: auto;
+}
+
+/* Estilo para o botão de fechar */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* Responsividade */
+
+/* Tablets e dispositivos médios */
+@media (min-width: 768px) {
+  /* Tabela Principal: Linguagem e Imagem lado a lado */
+  .skills__main-table {
+      flex-direction: row; /* Alinha as colunas horizontalmente */
+      justify-content: space-between; /* Espaça igualmente os elementos */
+      align-items: flex-start; /* Alinha o início verticalmente */
+  }
+
+  .skills__left-column,
+  .skills__right-column {
+      width: 48%; /* Define a largura das colunas */
+  }
+
+  /* Habilidades Técnicas: 3 colunas lado a lado */
+  .skills__columns {
+      flex-direction: row; /* Alinha as colunas horizontalmente */
+      gap: 2rem; /* Espaçamento entre as colunas */
+  }
+
+  .skills__column {
+      flex: 1; /* Permite que as colunas ocupem espaço igual */
+  }
+}
+
+/* Desktops e dispositivos grandes */
+@media (min-width: 1024px) {
+  /* Ajustes adicionais para telas grandes, se necessário */
+  /* Por exemplo, aumentar a largura das colunas ou ajustar espaçamentos */
+}
+
+
+
+/* Correção de Ícones (Caso sejam adicionados no futuro) */
+.skills__icon.bxl-microsoft {
+  /* Estilização personalizada para ícones do Azure, se necessário */
+  /* Por exemplo, utilizando uma fonte específica ou SVG */
+  font-family: 'AzureFont', sans-serif; /* Substitua com a fonte correta */
+}
+
+.skills__icon.bxl-tableau::before {
+  content: "\f1f9"; /* Código Unicode para o ícone Tableau */
+  /* Substitua com o código correto ou utilize SVG personalizado */
+}
+
+.skills__icon.bxl-powerbi::before {
+  content: "\f1fc"; /* Código Unicode para o ícone Power BI */
+  /* Substitua com o código correto ou utilize SVG personalizado */
+}
+
+/*===== WORK =====*/
+.work__container {
+  row-gap: 2rem;
+}
+
+.work__img {
+  box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.work__img img {
+  transition: 0.3s; /* Redução do tempo da transição para suavizar */
+}
+
+.work__img img:hover {
+  transform: scale(1.1);
+}
+
+/*===== CONTACT =====*/
+.contact__input {
+  width: 100%;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semi);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid var(--second-color);
+  outline: none;
+  margin-bottom: var(--mb-4);
+}
+
+.contact__button {
+  display: block;
+  border: none;
+  outline: none;
+  font-size: var(--normal-font-size);
+  cursor: pointer;
+  margin: 0 auto; 
+}
+
+/*===== FOOTER =====*/
+.footer {
+  background-color: var(--second-color);
+  color: #fff;
+  text-align: center;
+  font-weight: var(--font-semi);
+  padding: 2rem 0;
+}
+
+.footer__title {
+  font-size: 2rem;
+  margin-bottom: var(--mb-4);
+}
+
+.footer__social {
+  margin-bottom: var(--mb-4);
+}
+
+.footer__icon {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 var(--mb-2);
+}
+
+.footer__copy {
+  font-size: var(--smaller-font-size);
+}
+
+/*===== MEDIA QUERIES=====*/
+
+/* Menores que 320px */
+@media screen and (max-width: 320px) {
+  .home {
+    row-gap: 2rem;
+  }
+  .home__img {
+    width: 200px;
+  }
+}
+
+/* Entre 576px e 767px */
+@media screen and (min-width: 576px) {
+  .home {
+    padding: 4rem 0 2rem;
+  }
+  .home__social {
+    padding-top: 0;
+    padding-bottom: 2.5rem;
+    flex-direction: row;
+    align-self: flex-end;
+  }
+  .home__social-icon {
+    margin-bottom: 0;
+    margin-right: var(--mb-4);
+  }
+  .home__img {
+    width: 300px;
+    bottom: 25%;
+  }
+  .about__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    text-align: initial;
+  }
+  .skills__container {
+    grid-template-columns: 0.7fr;
+    justify-content: center;
+    column-gap: 1rem;
+  }
+  .work__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    padding-top: 2rem;
+  }
+  .contact__form {
+    width: 360px;
+    padding-top: 2rem;
+  }
+  .contact__container {
+    justify-items: center;
+  }
+}
+
+/* Entre 768px e 991px */
+@media screen and (min-width: 768px) {
+  body {
+    margin: 0;
+  }
+  .section {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+  .section-title {
+    margin-bottom: var(--mb-6);
+  }
+  .section-title::after {
+    width: 80px;
+    top: 3rem;
+  }
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+  .nav__list {
+    display: flex;
+    padding-top: 0;
+  }
+  .nav__item {
+    margin-left: var(--mb-6);
+    margin-bottom: 0;
+  }
+  .nav__toggle {
+    display: none;                /* Esconde toggle em telas grandes */
+  }
+  .nav__link {
+    color: var(--second-color);
+  }
+  .home {
+    padding: 8rem 0 2rem;
+  }
+  .home__img {
+    width: 400px;
+    bottom: 10%;
+  }
+  .about__container {
+    padding-top: 2rem;
+  }
+  .about__img img {
+    width: 300px;
+  }
+  .skills__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    align-items: center;
+    text-align: initial;
+  }
+  .work__container {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+  }
+
+  /* Remove posicionamento absoluto do language-switcher para alinhamento à esquerda */
+  .language-switcher {
+    position: static;
+    transform: translateX(0);
+  }
+}
+
+/* Maiores que 992px */
+@media screen and (min-width: 992px) {
+  .bd-grid {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .home {
+    padding: 10rem 0 2rem;
+  }
+  .home__img {
+    width: 450px;
+  }
+}
+
+/*===== ADDITIONAL STYLES =====*/
+
+/* Foco para acessibilidade */
+.lang-switch:focus, .nav__link:focus {
+  outline: 2px solid var(--first-color);
+  outline-offset: 2px;
+}

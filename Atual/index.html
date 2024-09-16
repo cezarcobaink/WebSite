@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="stylesheet" href="assets/css/styles.css">
+    
+        <!-- ===== GOOGLE FONTS ===== -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+        <!-- Font Awesome CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+        
+        <title>Portfolio Cezar</title>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-main">
+            <nav class="nav bd-grid">
+                <!-- Botões de Idioma à Esquerda -->
+                <div class="language-switcher">
+                    <button class="lang-switch" data-lang="en">EN</button>
+                    <button class="lang-switch" data-lang="es">ES</button>
+                    <button class="lang-switch" data-lang="pt">PT</button>
+                </div>
+
+                <!-- Menu de Navegação à Direita -->
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active-link" data-i18n="home">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link" data-i18n="about">About</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link" data-i18n="skills">Skills</a></li>
+                        <li class="nav__item"><a href="#work" class="nav__link" data-i18n="work">Work</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link" data-i18n="contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Toggle para Menu Mobile à Direita -->
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home bd-grid" id="home">
+                <div class="home__data">
+                    <h1 class="home__title" data-i18n="greeting">Hi,<br>I'm <span class="home__title-color">Cézar</span><br> Data Scientist</h1>
+                    <a href="#contact" class="button" data-i18n="contact">Contact</a>
+                </div>
+
+                <div class="home__social">
+                    <a href="https://www.linkedin.com/in/cézar-augusto-bento-a91528a8" class="home__social-icon" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.kaggle.com/czaraubento" class="home__social-icon" target="_blank"><i class="fa-brands fa-kaggle"></i></a>
+                    <a href="https://github.com/cezarcobaink" class="home__social-icon" target="_blank"><i class="fa-brands fa-github"></i></a>
+                </div>
+
+                <div class="home__img">
+                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <mask id="mask0" mask-type="alpha">
+                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                        </mask>
+                        <g mask="url(#mask0)">
+                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                            <image class="home__blob-img" x="50" y="60" href="assets/img/perfil.png"/>
+                        </g>
+                    </svg>
+                </div>
+            </section>
+            <!--===== ABOUT =====-->
+            <section class="about section" id="about">
+                <h2 class="section-title" data-i18n="about">About</h2>
+
+                <div class="about__container bd-grid">
+                    <div class="about__img">
+                        <img src="assets/img/about.jpg" alt="Sobre Cézar Bento">
+                    </div>
+                    
+                    <div>
+                        <h2 class="about__subtitle" data-i18n="about_subtitle">Eu sou Cézar</h2>
+                        <p class="about__text" data-i18n="about_text">
+                            Sou Cientista de Dados com formação em Física e pós-graduação em Ciência de Dados. Minha paixão é transformar dados em insights com metodologias rigorosas e criatividade.
+                        </p>           
+                    </div>                                   
+                </div>
+            </section>
+
+                <!--===== WORK =====-->
+            <section class="work section" id="work">
+                <h2 class="section-title" data-i18n="work">Work</h2>
+
+                <div class="work__container bd-grid">
+                    <a href="https://github.com/cezarcobaink/Python---outros.git" class="work__img" target="_blank">
+                        <img src="assets/img/Web_scraping.png" alt="Projeto 1">
+                    </a>
+                    <a href="https://github.com/seu-usuario/repositorio2" class="work__img" target="_blank">
+                        <img src="assets/img/Data_science.png" alt="Projeto 2">
+                    </a>
+                    <a href="https://github.com/seu-usuario/repositorio3" class="work__img" target="_blank">
+                        <img src="assets/img/Machine.png" alt="Projeto 3">
+                    </a>
+                    <a href="https://github.com/seu-usuario/repositorio4" class="work__img" target="_blank">
+                        <img src="assets/img/web.png" alt="Projeto 4">
+                    </a>
+                    <a href="https://github.com/seu-usuario/repositorio5" class="work__img" target="_blank">
+                        <img src="assets/img/Dashboards.png" alt="Projeto 5">
+                    </a>
+                    <a href="https://github.com/seu-usuario/repositorio6" class="work__img" target="_blank">
+                        <img src="assets/img/Data.png" alt="Projeto 6">
+                    </a>
+                </div>
+            </section>
+
+            </section>
+            <!--===== SKILLS SECTION =====-->
+            <section class="skills section" id="skills">
+                <!-- Título da Seção -->
+                <h2 class="section-title" data-i18n="skills">Skills</h2>
+                
+                <!-- Tabela Principal: Introdução e Linguagens de Programação à Esquerda, Imagem à Direita -->
+                <div class="skills__main-table">
+                    <!-- Coluna Esquerda: Introdução e Linguagens -->
+                    <div class="skills__left-column">
+                        <!-- Introdução -->
+                        <p class="skills__intro" data-i18n="skills_intro">
+                            Como Cientista de Dados, meu objetivo é utilizar dados para resolver problemas complexos e auxiliar na tomada de decisões estratégicas. Atuo principalmente em análise de dados, machine learning e web scraping. Acredito na importância de transformar dados brutos em insights através de metodologias rigorosas e criatividade.
+                        </p>
+                        
+                        <!-- Lista de Linguagens de Programação -->
+                        <div class="skills__language">
+                            <h3 data-i18n="skills_programming_title">Linguagens</h3>
+                            <ul>
+                                <li class="skills__item">
+                                    <i class="fab fa-python"></i> <!-- Ícone da habilidade -->
+                                    <span class="skill-name">Python         </span> <!-- Nome da habilidade -->
+                                    <div class="skills__progress-container">
+                                        <div class="skills__bar">
+                                            <div class="skills__bar-fill" data-width="80%"></div> <!-- Barra de progresso -->
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fab fa-html5"></i>
+                                    <span class="skill-name" >HTML             </span>
+                                    <div class="skills__progress-container">
+                                    <div class="skills__bar">
+                                        <div class="skills__bar-fill" data-width="80%"></div>
+                                    </div>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fab fa-css3-alt"></i>
+                                    <span class="skill-name">CSS                </span>
+                                    <div class="skills__progress-container">
+                                    <div class="skills__bar">
+                                        <div class="skills__bar-fill" data-width="80%"></div>
+                                    </div>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fab fa-js"></i>
+                                    <span class="skill-name">JavaScript</span>
+                                    <div class="skills__progress-container">
+                                    <div class="skills__bar">
+                                        <div class="skills__bar-fill" data-width="80%"></div>
+                                    </div>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-code"></i>
+                                    <span class="skill-name">R                  </span>
+                                    <div class="skills__progress-container">
+                                    <div class="skills__bar">
+                                        <div class="skills__bar-fill" data-width="80%"></div>
+                                    </div>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-code"></i>
+                                    <span class="skill-name">C++            </span>
+                                    <div class="skills__progress-container">
+                                    <div class="skills__bar">
+                                        <div class="skills__bar-fill" data-width="80%"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Coluna Direita: Imagem -->
+                    <div class="skills__right-column">
+                        <img src="assets/img/technical.jpg" alt="Imagem Representativa" class="skills__image">
+                    </div>
+                </div>
+                
+                <!-- Habilidades Técnicas -->
+                <div class="skills__technical">
+                    <h3 data-i18n="skills_technical_title">Habilidades Técnicas</h3>
+                    <div class="skills__columns">
+                        <!-- Coluna 1 -->
+                        <div class="skills__column">
+                            <ul>
+                                <li class="skills__item">
+                                    <i class="fas fa-brain"></i> <!-- Ícone de arquivo de código -->
+                                    <span class="skill-name">Machine Learning</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-network-wired"></i> <!-- Ícone de arquivo de código -->
+                                    <span class="skill-name">Deep Learning</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-database"></i> <!-- Ícone de arquivo de código -->
+                                    <span class="skill-name">Databases</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-server"></i> <!-- Ícone de arquivo de código -->
+                                    <span class="skill-name">Big Data</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-cloud"></i>
+                                    <span class="skill-name">AWS </span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-wrench"></i>
+                                    <span class="skill-name">GCP</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-cogs"></i>
+                                    <span class="skill-name">Azure</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                            </ul>
+                        </div>
+
+                        
+                        <!-- Coluna 2 -->
+                        <div class="skills__column">
+                            <ul>
+                                <li class="skills__item">
+                                    <i class="fas fa-project-diagram"></i> <!-- Ícone de arquivo de código -->
+                                    <span class="skill-name">ETL</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                
+                                <li class="skills__item">
+                                    <i class="fas fa-cube"></i> <!-- Ícone de arquivo de código -->
+                                    <span class="skill-name">Hadoop</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-star"></i> <!-- Ícone de arquivo de código -->
+                                    <span class="skill-name">Spark </span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-network-wired"></i> <!-- Ícone -->
+                                    <span class="skill-name">TensorFlow</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span class="skill-name" >scikit-learn</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-table"></i>
+                                    <span class="skill-name">Pandas</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-superscript"></i>
+                                    <span class="skill-name">NumPy</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                
+                                
+                            </ul>
+                        </div>
+                        <!-- Coluna 3 -->
+                        <div class="skills__column">
+                            
+                            <ul>
+                                <li class="skills__item">
+                                    <i class="fas fa-file-code"></i>
+                                    <span class="skill-name" >BeautifulSoup</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-spider"></i>
+                                    <span class="skill-name">Scrapy</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-robot"></i>
+                                    <span class="skill-name">Selenium</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-arrow-right"></i>
+                                    <span class="skill-name" >Requests</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-chart-area"></i>
+                                    <span class="skill-name" >Seaborn</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <span class="skill-name" >Plotly</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                                <li class="skills__item">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span class="skill-name" >PyMongo</span>
+                                    <i class="fas fa-check" style="color:#aa7d03; margin-left: 1rem;"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificações e Cursos -->
+                <div class="skills__certifications">
+                    <h3 data-i18n="skills_certifications_title">Certificações e Cursos</h3>
+                    <ul>
+                        <li>
+                            <span data-i18n="skills_cert_physics">Graduação em Física</span>
+                            <!-- Imagem da Graduação em Física -->
+                            <img src="assets/img/Física1.jpg" alt="Diploma de Graduação" class="cert-image" data-modal="modal1">
+                        </li>
+                        <li>
+                            <span data-i18n="skills_cert_datascience">Pós-graduação em Data Science</span>
+                            <!-- Imagem da Pós-graduação em Data Science -->
+                            <img src="assets/img/Data Science.jpg" alt="Diploma de Pós-graduação" class="cert-image" data-modal="modal2">
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Modal de Imagem 1 -->
+                <div id="modal1" class="modal">
+                    <span class="close" onclick="closeModal('modal1')">&times;</span>
+                    <img class="modal-content" id="img1">
+                </div>
+
+                <!-- Modal de Imagem 2 -->
+                <div id="modal2" class="modal">
+                    <span class="close" onclick="closeModal('modal2')">&times;</span>
+                    <img class="modal-content" id="img2">
+                </div>
+
+           </section>
+
+            <!--===== CONTACT =====-->
+            <section class="contact section" id="contact">
+                <h2 class="section-title" data-i18n="contact">Contact</h2>
+
+                <div class="contact__container bd-grid">
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact__form">
+                        <!-- Nome -->
+                        <input type="text" id="name" name="name" placeholder="Name" class="contact__input" data-i18n-placeholder="name_label">
+
+                        <!-- Email -->
+                        <input type="email" id="email" name="email" placeholder="Email" class="contact__input" data-i18n-placeholder="email_label">
+
+                        <!-- Mensagem -->
+                        <textarea id="message" name="message" cols="0" rows="10" placeholder="Message" class="contact__input" data-i18n-placeholder="message_label"></textarea>
+
+                        <!-- Botão de Enviar -->
+                        <input type="submit" value="Enviar" class="contact__button button" data-i18n="send_button">
+
+                    </form>
+                </div>
+            </section>
+
+
+
+        </main>
+
+            <!--===== FOOTER =====-->
+            <footer class="footer">
+                <p class="footer__title">Cézar Bento</p>
+                <div class="footer__social">
+                        <a href="https://www.facebook.com/cezar.bento" class="footer__icon"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/cezar.bento/" class="footer__icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://medium.com/@cezar.dados" class="footer__icon"><i class="fa-brands fa-medium"></i></a>
+                        <a href="https://www.youtube.com/@CezarAuBento" class="footer__icon"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+                <p class="footer__copy">&#169; CezarAuBento All rights reserved</p>
+            </footer>
+        
+    <!-- Carregar bibliotecas externas primeiro -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+    <script src="https://unpkg.com/i18next-browser-languagedetector@latest/dist/umd/i18nextBrowserLanguageDetector.min.js"></script>
+
+    <!-- Carregar scripts personalizados depois -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
