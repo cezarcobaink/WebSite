@@ -119,6 +119,8 @@ img {
   display: grid;
   margin-left: var(--mb-2);
   margin-right: var(--mb-2);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px; /* Ajuste o espaçamento entre os itens conforme necessário */
 }
 
 /* Fixed Header */
@@ -260,13 +262,17 @@ img {
 
 /*===== HOME =====*/
 .home {
-  position: relative;
-  row-gap: 5rem;
   padding: 4rem 0 5rem;
 }
 
+.home__container {
+  display: flex; /* Organiza os elementos em linha */
+  justify-content: space-between; /* Mantém a imagem à direita */
+  align-items: center; /* Alinha verticalmente ao centro */
+}
+
 .home__data {
-  align-self: center;
+  flex: 1; /* Ocupa o espaço disponível */
 }
 
 .home__title {
@@ -281,6 +287,7 @@ img {
 .home__social {
   display: flex;
   flex-direction: column;
+  margin-right: 2rem; /* Adiciona margem à direita dos ícones sociais */
 }
 
 .home__social-icon {
@@ -295,9 +302,6 @@ img {
 }
 
 .home__img {
-  position: absolute;
-  right: 0;
-  bottom: 0;
   width: 260px;
 }
 
@@ -771,6 +775,16 @@ img {
 /*===== WORK =====*/
 .work__container {
   row-gap: 2rem;
+  margin: 0 auto; /* Centraliza o contêiner na página */
+}
+
+/* Estilos padrão - 3 colunas */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas de igual tamanho */
+  gap: 2rem; /* Espaçamento entre as colunas */
+  max-width: 900px; /* Defina o tamanho máximo desejado */
+  margin: 0 auto; /* Centraliza o contêiner na página */
 }
 
 .work__img {
@@ -780,6 +794,8 @@ img {
 }
 
 .work__img img {
+  width: 100%; /* Garante que as imagens se ajustem ao espaço da coluna */
+  height: auto; /* Mantém a proporção das imagens */
   transition: 0.3s; /* Redução do tempo da transição para suavizar */
 }
 
@@ -838,151 +854,168 @@ img {
 
 /*===== MEDIA QUERIES=====*/
 
+/*===== MEDIA QUERIES=====*/
+
 /* Menores que 320px */
 @media screen and (max-width: 320px) {
   .home {
-    row-gap: 2rem;
+    row-gap: 2rem; /* Espaçamento entre as linhas */
   }
   .home__img {
-    width: 200px;
+    width: 200px; /* Largura da imagem */
   }
   
-  /* Para manter 3 colunas na seção Work */
-  .work__container {
+  /* Ajuste para telas muito pequenas (abaixo de 480px) */
+  .work-grid {
     grid-template-columns: repeat(3, 1fr); /* Mantém 3 colunas */
-    column-gap: 0.5rem; /* Ajuste no espaçamento */
+    gap: 0.5rem;
   }
-  .work__container img {
-    width: 100%; /* Imagens se adaptam ao espaço disponível */
-    height: auto; /* Mantém a proporção */
+
+  .work__img img {
+    width: 100%; /* Garante que as imagens se ajustem ao espaço da coluna */
+    height: auto;
   }
 }
 
 /* Entre 576px e 767px */
-@media screen and (min-width: 576px) and (max-width: 767px) {
+@media screen and (min-width: 576px) {
   .home {
-    padding: 4rem 0 2rem;
+    padding: 4rem 0 2rem; /* Espaçamento interno */
   }
   .home__social {
-    padding-top: 0;
-    padding-bottom: 2.5rem;
-    flex-direction: row;
-    align-self: flex-end;
+    padding-top: 0; /* Espaçamento superior */
+    padding-bottom: 2.5rem; /* Espaçamento inferior */
+    flex-direction: row; /* Direção dos itens */
+    align-self: flex-end; /* Alinhamento vertical */
   }
   .home__social-icon {
-    margin-bottom: 0;
-    margin-right: var(--mb-4);
+    margin-bottom: 0; /* Espaçamento inferior */
+    margin-right: var(--mb-4); /* Espaçamento direito */
   }
   .home__img {
-    width: 300px;
-    bottom: 25%;
+    width: 300px; /* Largura da imagem */
+    bottom: 25%; /* Posicionamento inferior */
   }
   .about__container {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    text-align: initial;
+    grid-template-columns: repeat(2, 1fr); /* Colunas com largura igual */
+    align-items: center; /* Alinhamento vertical */
+    text-align: initial; /* Alinhamento do texto */
   }
   .skills__container {
-    grid-template-columns: 0.7fr;
-    justify-content: center;
-    column-gap: 1rem;
+    grid-template-columns: 0.7fr; /* Coluna com largura fixa */
+    justify-content: center; /* Alinhamento horizontal */
+    column-gap: 1rem; /* Espaçamento entre as colunas */
   }
   .work__container {
-    grid-template-columns: repeat(3, 1fr); /* Mantém 3 colunas */
-    column-gap: 1rem; /* Ajuste no espaçamento */
-  }
-  .work__container img {
-    width: 100%; /* Imagens se adaptam ao espaço disponível */
-    height: auto; /* Mantém a proporção */
+    grid-template-columns: repeat(3, 1fr); /* Colunas com largura igual */
+    column-gap: 2rem; /* Espaçamento entre as colunas */
+    padding-top: 2rem; /* Espaçamento superior */
   }
   .contact__form {
-    width: 360px;
-    padding-top: 2rem;
+    width: 360px; /* Largura do formulário */
+    padding-top: 2rem; /* Espaçamento superior */
   }
   .contact__container {
-    justify-items: center;
+    justify-items: center; /* Alinhamento horizontal */
+  }
+  .work-grid {
+    grid-template-columns: repeat(3, 1fr); /* Mantém 3 colunas */
+    gap: 1rem;
+  }
+
+  .work__img img {
+    width: 100%; /* Ajusta as imagens ao tamanho da coluna */
+    height: auto;
   }
 }
 
 /* Entre 768px e 991px */
 @media screen and (min-width: 768px) {
   body {
-    margin: 0;
+    margin: 0; /* Margem externa */
   }
   .section {
-    padding-top: 4rem;
-    padding-bottom: 3rem;
+    padding-top: 4rem; /* Espaçamento superior */
+    padding-bottom: 3rem; /* Espaçamento inferior */
   }
   .section-title {
-    margin-bottom: var(--mb-6);
+    margin-bottom: var(--mb-6); /* Espaçamento inferior */
   }
   .section-title::after {
-    width: 80px;
-    top: 3rem;
+    width: 80px; /* Largura da linha */
+    top: 3rem; /* Posicionamento superior */
   }
   .nav {
-    height: calc(var(--header-height) + 1.5rem);
+    height: calc(var(--header-height) + 1.5rem); /* Altura do elemento */
   }
   .nav__list {
-    display: flex;
-    padding-top: 0;
+    display: flex; /* Exibe os itens em linha */
+    padding-top: 0; /* Espaçamento superior */
   }
   .nav__item {
-    margin-left: var(--mb-6);
-    margin-bottom: 0;
+    margin-left: var(--mb-6); /* Espaçamento esquerdo */
+    margin-bottom: 0; /* Espaçamento inferior */
   }
   .nav__toggle {
     display: none; /* Esconde toggle em telas grandes */
   }
   .nav__link {
-    color: var(--second-color);
+    color: var(--second-color); /* Cor do texto */
   }
   .home {
-    padding: 8rem 0 2rem;
+    padding: 8rem 0 2rem; /* Espaçamento interno */
   }
   .home__img {
-    width: 400px;
-    bottom: 10%;
+    width: 400px; /* Largura da imagem */
+    bottom: 10%; /* Posicionamento inferior */
   }
   .about__container {
-    padding-top: 2rem;
+    padding-top: 2rem; /* Espaçamento superior */
   }
   .about__img img {
-    width: 300px;
+    width: 300px; /* Largura da imagem */
   }
   .skills__container {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 2rem;
-    align-items: center;
-    text-align: initial;
+    grid-template-columns: repeat(2, 1fr); /* Colunas com largura igual */
+    column-gap: 2rem; /* Espaçamento entre as colunas */
+    align-items: center; /* Alinhamento vertical */
+    text-align: initial; /* Alinhamento do texto */
   }
   .work__container {
-    grid-template-columns: repeat(3, 1fr); /* Mantém 3 colunas */
-    column-gap: 2rem;
+    grid-template-columns: repeat(3, 1fr); /* Colunas com largura igual */
+    column-gap: 2rem; /* Espaçamento entre as colunas */
   }
-  .work__container img {
-    width: 100%; /* Imagens se adaptam ao espaço disponível */
-    height: auto; /* Mantém a proporção */
-  }
+  /* Estilos padrão - 3 colunas */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas de igual tamanho */
+  gap: 2rem; /* Espaçamento entre as colunas */
+}
 
   /* Remove posicionamento absoluto do language-switcher para alinhamento à esquerda */
   .language-switcher {
-    position: static;
-    transform: translateX(0);
+    position: static; /* Posicionamento estático */
+    transform: translateX(0); /* Translação horizontal */
   }
 }
 
 /* Maiores que 992px */
 @media screen and (min-width: 992px) {
   .bd-grid {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto; /* Margem esquerda automática */
+    margin-right: auto; /* Margem direita automática */
+  }
+  /* Estilos padrão - 3 colunas */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas de igual tamanho */
+    gap: 2rem; /* Espaçamento entre as colunas */
   }
   .home {
-    padding: 10rem 0 2rem;
+    padding: 10rem 0 2rem; /* Espaçamento interno */
   }
   .home__img {
-    width: 450px;
+    width: 450px; /* Largura da imagem */
   }
 }
 
@@ -990,6 +1023,6 @@ img {
 
 /* Foco para acessibilidade */
 .lang-switch:focus, .nav__link:focus {
-  outline: 2px solid var(--first-color);
-  outline-offset: 2px;
+  outline: 2px solid var(--first-color); /* Cor e espessura da borda */
+  outline-offset: 2px; /* Espaçamento entre a borda e o elemento */
 }
